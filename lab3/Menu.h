@@ -16,6 +16,25 @@ public:
 		this->hotDishAmount = 0;
 		this->drinkAmount = 0;
 	}
+	Dish getHotDish(int a) {
+		return this->hotDishes[a];
+	}
+	Dish getdessert(int a) {
+		return this->desserts[a];
+	}
+	Dish getdrink(int a) {
+		return this->drinks[a];
+	}
+	int getdessertAmount() {
+		return this->dessertAmount;
+	}
+	int getdrinkAmount() {
+		return this->drinkAmount;
+	}
+	int getHotDishesAmount() {
+		return this->hotDishAmount;
+	}
+
 	void addHotDish(Dish dish) {
 		hotDishes[hotDishAmount++] = dish;
 	}

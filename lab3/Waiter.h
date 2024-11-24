@@ -13,5 +13,11 @@ public:
         this->name = name;
         this->currentOrder;
     }
+    std::string getName() {
+        return this->name;
+    }
+    void setOrder(Order order) {
+        this->currentOrder = order;
+    }
 };
 
