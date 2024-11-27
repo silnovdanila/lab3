@@ -38,5 +38,9 @@ public:
 		std::cout << "\nEnter the card details for the payment: ";
 		this->payWithCard();
 	}
+	void addHistory() {
+		this->card.setDiscount(this->card.getDiscount());
+		this->card.addTOhistoryOForders(this->currentOrder);
+	}
 };
 

@@ -13,6 +13,7 @@ public:
         this->name = name;
         this->currentOrder;
     }
+    Chef() = default;
     std::string getName() {
         return this->name;
     }

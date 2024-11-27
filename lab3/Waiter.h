@@ -13,6 +13,7 @@ public:
         this->name = name;
         this->currentOrder;
     }
+    Waiter() = default;
     std::string getName() {
         return this->name;
     }

@@ -15,5 +15,33 @@ int main()
     Dish* drink1 = new Dish(120, "Tea");
     menu->addDrink(*drink1);
     menu->menuOut();
+    Chef povar1 = *new Chef("Vasiliy", 60000, "Chef");
+    Chef povar2 = *new Chef("Gregory", 45000, "Povar");
+    Chef povar3 = *new Chef("Egor", 45000, "Povar");
+    Waiter* waiter1 = new Waiter("Anna", 45000, "Waiter");
+    Waiter* waiter2 = new Waiter("Anna", 45000, "Waiter");
+
+    Chef* povara = new Chef[3] {povar1, povar2, povar3};
+    Waiter *waiters[2] = {waiter1, waiter2};
+
+    int order[20], dish, idi = 1;
+
+    Client client1 = Client::getNewClient(idi++);
+    Order::getOrder(client1, *waiters[1], povara[1], *menu, order);
+    dish = Order::madeOrder(&client1, waiters[1], &povara[1], *menu, order);
+    client1.payClient(dish);
+    client1.addHistory();
+
+    Client client2 = Client::getNewClient(idi++);
+    Order::getOrder(client2, *waiters[2], povara[2], *menu, order);
+    dish = Order::madeOrder(&client2, waiters[1], &povara[2], *menu, order);
+    client2.payClient(dish);
+    client2.addHistory();
+
+    Client client1 = Client::getNewClient(idi++);
+    Order::getOrder(client1, *waiters[1], povara[2], *menu, order);
+    dish = Order::madeOrder(&client1, waiters[1], &povara[2], *menu, order);
+    client1.payClient(dish);
+    client1.addHistory();
 }
 
