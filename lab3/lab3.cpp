@@ -29,9 +29,7 @@ int main()
 
     Chef* povara = new Chef[3] {povar1, povar2, povar3};
     Waiter *waiters[2] = {waiter1, waiter2};
-
     int order[20], dish, idi = 1;
-
     Client client1 = Client::getNewClient(idi++);
     getOrder(client1.getName(), waiters[0]->getName(), povara[0].getName(), *menu, order);
     dish = madeOrder(&client1, waiters[1], &povara[1], *menu, order);
@@ -48,5 +46,9 @@ int main()
     dish = madeOrder(&client1, waiters[1], &povara[2], *menu, order);
     client1.payClient(dish);
     client1.addHistory();
+    delete menu;
+    delete[] povara;
+    delete[] waiters;
+
 }
 
