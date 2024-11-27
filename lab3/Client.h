@@ -26,5 +26,17 @@ public:
 	void setOrder(Order order) {
 		this->currentOrder = order;
 	}
+	void payWithCard() {
+		int sum;
+		scanf("%d", &sum);
+		std::cout << "\nThe payment was successful";
+	}
+	void payClient(int dish) {
+		int sum;
+		sum = this->currentOrder.orderSum(dish);
+		std::cout << "\nThe price of order is" << sum * (1 - this->card.getDiscount())  << "rub, your discount is "<< this->card.getDiscount() << "%";
+		std::cout << "\nEnter the card details for the payment: ";
+		this->payWithCard();
+	}
 };
 

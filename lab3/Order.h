@@ -53,5 +53,14 @@ public:
 		povar->setOrder(*newOrder);
 		return dish;
 	}
+	int orderSum(int dish) {
+		int sum = 0;
+		printf("\nYour order: ");
+		for (int i = 0; i < dish; i++) {
+			std::cout << this->order[i].getName();
+			sum += this->order[i].getPrice();
+		}
+		return sum;
+	}
 };
 

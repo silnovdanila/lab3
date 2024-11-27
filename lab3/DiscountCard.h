@@ -14,5 +14,8 @@ public:
 		this->orders = 0;
 	}
 	DiscountCard() = default;
+	double getDiscount() {
+		return this->discount;
+	}
 };
 
