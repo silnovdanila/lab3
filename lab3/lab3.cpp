@@ -1,7 +1,13 @@
 ﻿#include "DiscountCard.h"
+#define _CRT_SECURE_NO_WARNINGS
 #include "Dish.h"
 #include "Menu.h"
 #include <iostream>
+#include "Order.h"
+#include "Chef.h"
+#include "Waiter.h"
+#include "Client.h"
+#include "OrderFunc.h"
 
 int main()
 {
@@ -27,20 +33,19 @@ int main()
     int order[20], dish, idi = 1;
 
     Client client1 = Client::getNewClient(idi++);
-    Order::getOrder(client1, *waiters[1], povara[1], *menu, order);
-    dish = Order::madeOrder(&client1, waiters[1], &povara[1], *menu, order);
+    getOrder(client1.getName(), waiters[0]->getName(), povara[0].getName(), *menu, order);
+    dish = madeOrder(&client1, waiters[1], &povara[1], *menu, order);
     client1.payClient(dish);
     client1.addHistory();
 
     Client client2 = Client::getNewClient(idi++);
-    Order::getOrder(client2, *waiters[2], povara[2], *menu, order);
-    dish = Order::madeOrder(&client2, waiters[1], &povara[2], *menu, order);
+    getOrder(client2.getName(), waiters[1]->getName(), povara[1].getName(), *menu, order);
+    dish = madeOrder(&client2, waiters[1], &povara[2], *menu, order);
     client2.payClient(dish);
     client2.addHistory();
 
-    Client client1 = Client::getNewClient(idi++);
-    Order::getOrder(client1, *waiters[1], povara[2], *menu, order);
-    dish = Order::madeOrder(&client1, waiters[1], &povara[2], *menu, order);
+    getOrder(client1.getName(), waiters[1]->getName(), povara[2].getName(), *menu, order);
+    dish = madeOrder(&client1, waiters[1], &povara[2], *menu, order);
     client1.payClient(dish);
     client1.addHistory();
 }

@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include "Order.h"
 #include "DiscountCard.h"
 #include "iostream"
@@ -16,6 +17,7 @@ public:
 	static Client getNewClient(int id) {
 		std::cout << "\nWelcome to the cafe\nPlease, enter your name - ";
 		char s[80];
+		std::cin.ignore();
 		std::cin.getline(s, 80);
 		Client *client = new Client(id, s);
 		return *client;
@@ -34,12 +36,12 @@ public:
 	void payClient(int dish) {
 		int sum;
 		sum = this->currentOrder.orderSum(dish);
-		std::cout << "\nThe price of order is" << sum * (1 - this->card.getDiscount())  << "rub, your discount is "<< this->card.getDiscount() << "%";
+		std::cout << "\nThe price of order is " << sum * (1 - this->card.getDiscount())  << " rub, your discount is "<< this->card.getDiscount() * 100 << "%";
 		std::cout << "\nEnter the card details for the payment: ";
 		this->payWithCard();
 	}
 	void addHistory() {
-		this->card.setDiscount(this->card.getDiscount());
+		this->card.setDiscount(this->card.getNewDiscount(this->card.getDiscount()));
 		this->card.addTOhistoryOForders(this->currentOrder);
 	}
 };

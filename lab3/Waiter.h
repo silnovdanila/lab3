@@ -1,4 +1,5 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 #include "Employee.h"
 #include "Order.h"
 #include "iostream"

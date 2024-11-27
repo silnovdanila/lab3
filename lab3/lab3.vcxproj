@@ -135,6 +135,7 @@
     <ClCompile Include="lab3.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderFunc.cpp" />
     <ClCompile Include="Waiter.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +146,7 @@
     <ClInclude Include="Employee.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderFunc.h" />
     <ClInclude Include="Waiter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
