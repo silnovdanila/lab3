@@ -9,4 +9,4 @@
 #include "Order.h"
 
 void getOrder(std::string clientName, std::string waiterName, std::string povarName, Menu menu, int order[]);
-int madeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]);
+void makeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]);

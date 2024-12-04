@@ -3,13 +3,18 @@
 #include "iostream"
 class Employee
 {
-private:
+protected:
 	int salary;
 	std::string job;
+	std::string name;
 public:
-	Employee(int salary, std::string job) {
+	Employee(int salary, std::string job, std::string name) {
 		this->salary = salary;
 		this->job = job;
+		this->name = name;
+	}
+	std::string getName() {
+		return this->name;
 	}
 };
 

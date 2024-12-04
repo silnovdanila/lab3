@@ -1,7 +1,6 @@
-#include "OrderFunc.h"
 #define _CRT_SECURE_NO_WARNINGS
-//void getOrder(std::string clientName, std::string waiterName, std::string povarName, Menu menu, int order[]);
-//int madeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]);
+#include "OrderFunc.h"
+
 void getOrder(std::string clientName, std::string waiterName, std::string povarName, Menu menu, int order[]) {
 	int num;
 	std::cout << "\nHello, " << clientName;
@@ -18,7 +17,7 @@ void getOrder(std::string clientName, std::string waiterName, std::string povarN
 	}
 	order[i] = 0;
 }
-int madeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]) {
+void makeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]) {
 	Dish* dishes = new Dish[20];
 	int dish = 0;
 	for (int i = 0; sp[i] != 0; i++) {
@@ -42,5 +41,4 @@ int madeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[]) 
 	client->setOrder(*newOrder);
 	waiter->setOrder(*newOrder);
 	povar->setOrder(*newOrder);
-	return dish;
 }

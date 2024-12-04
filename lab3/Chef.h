@@ -10,14 +10,11 @@ private:
     std::string name;
     Order currentOrder;
 public:
-    Chef(std::string name, int salary, std::string job) : Employee(salary, job){
+    Chef(std::string name, int salary, std::string job) : Employee(salary, job, name){
         this->name = name;
         this->currentOrder;
     }
     Chef() = default;
-    std::string getName() {
-        return this->name;
-    }
     void setOrder(Order order) {
         this->currentOrder = order;
     }

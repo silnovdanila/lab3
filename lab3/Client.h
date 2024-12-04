@@ -33,9 +33,9 @@ public:
 		scanf("%d", &sum);
 		std::cout << "\nThe payment was successful";
 	}
-	void payClient(int dish) {
+	void payClient() {
 		int sum;
-		sum = this->currentOrder.orderSum(dish);
+		sum = this->currentOrder.orderSum();
 		std::cout << "\nThe price of order is " << sum * (1 - this->card.getDiscount())  << " rub, your discount is "<< this->card.getDiscount() * 100 << "%";
 		std::cout << "\nEnter the card details for the payment: ";
 		this->payWithCard();
