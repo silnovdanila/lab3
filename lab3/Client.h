@@ -35,8 +35,10 @@ public:
 	}
 	void payClient() {
 		int sum;
-		sum = this->currentOrder.orderSum();
-		std::cout << "\nThe price of order is " << sum * (1 - this->card.getDiscount())  << " rub, your discount is "<< this->card.getDiscount() * 100 << "%";
+		double* discount = new double;
+		this->card.getDiscount(discount);
+		this->currentOrder.orderSum(sum);
+		std::cout << "\nThe price of order is " << sum * (1 - *discount)  << " rub, your discount is "<< *discount * 100 << "%";
 		std::cout << "\nEnter the card details for the payment: ";
 		this->payWithCard();
 	}

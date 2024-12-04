@@ -35,7 +35,7 @@ void makeOrder(Client* client, Waiter* waiter, Chef* povar, Menu menu, int sp[])
 	Order* newOrder = new Order;
 	int i = 0;
 	while (i != dish) {
-		newOrder->addDish(dishes[i]);
+		newOrder+=dishes[i];
 		i++;
 	}
 	client->setOrder(*newOrder);

@@ -11,19 +11,33 @@ public:
 	Order() {
 		this->dishes = 0;
 	}
-	//Order() = default;
 	void addDish(Dish dish) {
 		this->order[this->dishes++] = dish;
 	}
-	int orderSum() {
-		int sum = 0;
+	void orderSum(int& sum) {
+		sum = 0;
 		printf("\nYour order: ");
 		for (int i = 0; i < dishes; i++) {
 			if (i != dishes - 1) { std::cout << this->order[i].getName() << ", "; }
 			else { std::cout << this->order[i].getName(); }
 			sum += this->order[i].getPrice();
 		}
-		return sum;
+	}
+	friend Order operator+(Order order, Dish dish) {
+		order.addDish(dish);
+		return order;
+	}
+	friend Order* operator+(Order *order, Dish dish) {
+		order->addDish(dish);
+		return order;
+	}
+	friend Order operator+=(Order order, Dish dish) {
+		order.addDish(dish);
+		return order;
+	}
+	friend Order* operator+=(Order* order, Dish dish) {
+		order->addDish(dish);
+		return order;
 	}
 };
 

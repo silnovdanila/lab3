@@ -15,7 +15,10 @@ public:
 		this->orders = 0;
 	}
 	DiscountCard() = default;
-	double getDiscount() const {
+	void getDiscount(double *discount) const {
+		*discount = this->discount;
+	}
+	double getDiscount() {
 		return this->discount;
 	}
 	void setDiscount(double b) {
@@ -25,9 +28,7 @@ public:
 		if (discount >= 0.089) {
 			return 0.1;
 		}
-		else {
-			return discount += 0.01;
-		}
+		return discount += 0.01;
 	}
 	void addTOhistoryOForders(Order newOrder) {
 		this->historyOForders[this->orders++] = newOrder;
