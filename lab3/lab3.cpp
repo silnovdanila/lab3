@@ -47,9 +47,5 @@ int main()
     makeOrder(&client1, waiters[1], &povara[2], *menu, order);
     client1.payClient();
     client1.addHistory();
-    delete menu;
-    delete[] povara;
-    delete[] waiters;
-
 }
 

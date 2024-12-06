@@ -31,6 +31,9 @@ public:
 	void getDiscount(double *discount) const {
 		*discount = this->discount;
 	}
+	void getDiscount(std::shared_ptr<double> discount) const {
+		*discount = this->discount;
+	}
 	double getDiscount() {
 		return this->discount;
 	}

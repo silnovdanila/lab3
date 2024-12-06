@@ -25,7 +25,7 @@ public:
 		char s[80];
 		std::cin.ignore();
 		std::cin.getline(s, 80);
-		Client *client = new Client(s);
+		std::unique_ptr<Client> client(new Client(s));
 		return *client;
 	}
 	std::string getName() {
@@ -41,7 +41,7 @@ public:
 	}
 	void payClient() {
 		int sum;
-		double* discount = new double;
+		std::shared_ptr<double> discount(new double);
 		this->card.getDiscount(discount);
 		this->currentOrder.orderSum(sum);
 		std::cout << "\nThe price of order is " << sum * (1 - *discount)  << " rub, your discount is "<< *discount * 100 << "%";
