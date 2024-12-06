@@ -24,20 +24,22 @@ public:
 		}
 	}
 	friend Order operator+(Order order, Dish dish) {
-		order.addDish(dish);
+		order.order[order.dishes++] = dish;
 		return order;
 	}
-	friend Order* operator+(Order *order, Dish dish) {
-		order->addDish(dish);
+	friend Order* operator+(Order* order, Dish dish) {
+		order->order[order->dishes++] = dish;
 		return order;
 	}
 	friend Order operator+=(Order order, Dish dish) {
-		order.addDish(dish);
+		order.order[order.dishes++] = dish;
 		return order;
 	}
 	friend Order* operator+=(Order* order, Dish dish) {
-		order->addDish(dish);
+		order->order[order->dishes++] = dish;
 		return order;
 	}
+	Dish operator[](int index) {
+		return this->order[index];
+	}
 };
-

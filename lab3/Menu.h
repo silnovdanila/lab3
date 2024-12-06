@@ -35,7 +35,6 @@ public:
 	int getHotDishesAmount() {
 		return this->hotDishAmount;
 	}
-
 	void addHotDish(Dish dish) {
 		hotDishes[hotDishAmount++] = dish;
 	}

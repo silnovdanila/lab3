@@ -33,5 +33,25 @@ public:
 	void addTOhistoryOForders(Order newOrder) {
 		this->historyOForders[this->orders++] = newOrder;
 	}
+	friend DiscountCard operator+(DiscountCard card, Order order) {
+		card.historyOForders[card.orders] = order;
+		card.orders += 1;
+		return card;
+	}
+	friend DiscountCard operator+=(DiscountCard card, Order order) {
+		card.historyOForders[card.orders] = order;
+		card.orders += 1;
+		return card;
+	}
+	friend DiscountCard* operator+(DiscountCard* card, Order order) {
+		card->historyOForders[card->orders] = order;
+		card->orders += 1;
+		return card;
+	}
+	friend DiscountCard* operator+=(DiscountCard* card, Order order) {
+		card->historyOForders[card->orders] = order;
+		card->orders += 1;
+		return card;
+	}
 };
 

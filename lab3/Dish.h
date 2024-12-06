@@ -18,5 +18,10 @@ class Dish
 		std::string getName() const {
 			return this->name;
 		}
+		Dish operator+(Dish dish) {
+			this->name = this->name + " " + dish.name;
+			this->price += dish.price;
+			return *this;
+		}
 };
 
