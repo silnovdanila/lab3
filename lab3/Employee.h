@@ -13,6 +13,12 @@ public:
 		this->job = job;
 		this->name = name;
 	}
+	Employee(const Employee& emp) {
+		this->job = emp.job;
+		this->name = emp.name;
+		this->salary = emp.salary;
+	}
+	Employee() = default;
 	std::string getName() {
 		return this->name;
 	}

@@ -1,20 +1,33 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include "Order.h"
+#include <iostream>
+
 class DiscountCard
 {
 private:
-	int id;
 	double discount;
 	Order* historyOForders = new Order[20];
 	int orders;
+	static int id;
 public:
-	DiscountCard(int id) {
-		this->id = id;
+	DiscountCard() {
+		this->id++;
 		this->discount = 0;
 		this->orders = 0;
 	}
-	DiscountCard() = default;
+	DiscountCard(const DiscountCard& card) {
+		this->discount = card.discount;
+		this->id = id++;
+		this->orders = card.orders;
+		this->historyOForders = new Order[20];
+		for (int i = 0; i < this->orders; i++) {
+			this->historyOForders = &card.historyOForders[i];
+		}
+	}
+	void newID() {
+		this->id++;
+	}
 	void getDiscount(double *discount) const {
 		*discount = this->discount;
 	}

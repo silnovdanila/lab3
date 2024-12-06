@@ -14,6 +14,13 @@ public:
         this->name = name;
         this->currentOrder;
     }
+
+    Waiter(const Waiter& waiter) {
+        this->job = waiter.job;
+        this->name = waiter.name;
+        this->salary = waiter.salary;
+        this->currentOrder = waiter.currentOrder;
+    }
     Waiter() = default;
     void setOrder(Order order) {
         this->currentOrder = order;

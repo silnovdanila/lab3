@@ -8,6 +8,7 @@
 #include "Client.h"
 #include "OrderFunc.h"
 #include <iostream>
+int DiscountCard::id = 0;
 
 int main()
 {
@@ -29,14 +30,14 @@ int main()
 
     Chef* povara = new Chef[3] {povar1, povar2, povar3};
     Waiter *waiters[2] = {waiter1, waiter2};
-    int order[20], idi = 1;
-    Client client1 = Client::getNewClient(idi++);
+    int order[20];
+    Client client1 = Client::getNewClient();
     getOrder(client1.getName(), waiters[0]->getName(), povara[0].getName(), *menu, order);
     makeOrder(&client1, waiters[1], &povara[1], *menu, order);
     client1.payClient();
     client1.addHistory();
 
-    Client client2 = Client::getNewClient(idi++);
+    Client client2 = Client::getNewClient();
     getOrder(client2.getName(), waiters[1]->getName(), povara[1].getName(), *menu, order);
     makeOrder(&client2, waiters[1], &povara[2], *menu, order);
     client2.payClient();

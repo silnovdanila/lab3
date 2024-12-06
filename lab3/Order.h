@@ -11,6 +11,12 @@ public:
 	Order() {
 		this->dishes = 0;
 	}
+	Order(const Order& order) {
+		this->dishes = order.dishes;
+		for (int i = 0; i < this->dishes; i++) {
+			this->order[i] = order.order[i];
+		}
+	}
 	void addDish(Dish dish) {
 		this->order[this->dishes++] = dish;
 	}
@@ -18,7 +24,7 @@ public:
 		sum = 0;
 		printf("\nYour order: ");
 		for (int i = 0; i < dishes; i++) {
-			if (i != dishes - 1) { std::cout << this->order[i].getName() << ", "; }
+			if (i != dishes - 1) { std::cout << this->order[i].getName() + ", "; }
 			else { std::cout << this->order[i].getName(); }
 			sum += this->order[i].getPrice();
 		}

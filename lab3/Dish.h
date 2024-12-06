@@ -11,6 +11,10 @@ class Dish
 			this->price = price;
 			this->name = s;
 		}
+		Dish(const Dish& dish) {
+			this->name = dish.name;
+			this->price = dish.price;
+		}
 		Dish() = default;
 		int getPrice() const {
 			return this->price;

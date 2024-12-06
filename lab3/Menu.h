@@ -17,6 +17,20 @@ public:
 		this->hotDishAmount = 0;
 		this->drinkAmount = 0;
 	}
+	Menu(const Menu& menu) {
+		this->dessertAmount = menu.dessertAmount;
+		this->hotDishAmount = menu.hotDishAmount;
+		this->drinkAmount = menu.drinkAmount;
+		for (int i = 0; i < this->dessertAmount; i++) {
+			this->desserts[i] = menu.desserts[i];
+		}
+		for (int i = 0; i < this->hotDishAmount; i++) {
+			this->hotDishes[i] = menu.hotDishes[i];
+		}
+		for (int i = 0; i < this->drinkAmount; i++) {
+			this->drinks[i] = menu.drinks[i];
+		}
+	}
 	Dish getHotDish(int a) {
 		return this->hotDishes[a];
 	}
