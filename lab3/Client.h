@@ -36,7 +36,17 @@ public:
 	}
 	void payWithCard() {
 		int sum;
-		scanf("%d", &sum);
+		label:
+		std::cout << "\nEnter the PIN of yout card for the payment: ";
+		try {
+			std::cin >> sum;
+		}
+		catch(std::exception &e){
+			goto label;
+		}
+		if (sum < 1000 || sum > 9999) {
+			throw std::range_error("PIN is incorrect");
+		}
 		std::cout << "\nThe payment was successful";
 	}
 	void payClient() {
@@ -45,8 +55,12 @@ public:
 		this->card.getDiscount(discount);
 		this->currentOrder.orderSum(sum);
 		std::cout << "\nThe price of order is " << sum * (1 - *discount)  << " rub, your discount is "<< *discount * 100 << "%";
-		std::cout << "\nEnter the card details for the payment: ";
-		this->payWithCard();
+		try {
+			this->payWithCard();
+		}
+		catch (std::range_error) {
+			std::cout << "\nPIN is incorrect. Your order is canceled.\n";
+		}
 	}
 	void addHistory() {
 		this->card.setDiscount(this->card.getNewDiscount(this->card.getDiscount()));
