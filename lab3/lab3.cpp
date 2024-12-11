@@ -13,14 +13,16 @@ int DiscountCard::id = 0;
 int main()
 {
     Menu* menu = new Menu;
-    Dish* hotdish1 = new Dish(1200, "Mashed potato");
+    HotDish* hotdish1 = new HotDish(1200, "Mashed potato", 300);
     menu->addHotDish(*hotdish1);
-    Dish* hotdish2 = new Dish(1100, "Sup");
+    HotDish* hotdish2 = new HotDish(1100, "Sup", 350);
     menu->addHotDish(*hotdish2);
-    Dish* dessert1 = new Dish(700, "Cake");
+    Dessert* dessert1 = new Dessert(700, "Cake", 200, 0);
     menu->addDessert(*dessert1);
-    Dish* drink1 = new Dish(120, "Tea");
+    Drink* drink1 = new Drink(120, "Tea", 200, 0);
     menu->addDrink(*drink1);
+    Drink* drink2 = new Drink(500, "Margarita", 300, 10);
+    menu->addDrink(*drink2);
     menu->menuOut();
     Chef povar1 = *new Chef("Vasiliy", 60000, "Chef");
     Chef povar2 = *new Chef("Gregory", 45000, "Povar");

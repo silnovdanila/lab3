@@ -1,7 +1,7 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include "iostream"
-class Employee
+class Employee abstract
 {
 protected:
 	int salary;

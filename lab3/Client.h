@@ -14,6 +14,7 @@ public:
 		this->card = DiscountCard();
 		this->name = name;
 	}
+	Client() = default;
 	Client(const Client& client) {
 		this->name = client.name;
 		this->currentOrder = client.currentOrder;
